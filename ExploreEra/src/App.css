@@ -1,0 +1,21 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  font-family: system-ui,  Roboto sans-serif;
+}
+
+@font-face {
+  font-family: 'Kalnia';
+  src: url('../src/assets/Kalnia-Regular.ttf');
+}
+
+.font-kalnia {
+   font-family: 'Kalnia';
+   font-size: 48px;
+   font-weight: 500;
+   line-height: 64.56px;
+   text-align: left;
+}
