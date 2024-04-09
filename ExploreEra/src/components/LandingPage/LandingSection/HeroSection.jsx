@@ -2,6 +2,8 @@ import BackgroundImg from "../../../../public/Img/backgroundImg.png"
 import Services from "./Services/Services";
 import Trips from "./Trips"
 import Swiper from "./Swiper/Swiper.jsx"
+import Blogs from "./Blogs/Blogs.jsx"
+import Booking from "./Booking/Booking.jsx"
 
 const LandingSection = () => {
   return (
@@ -22,7 +24,8 @@ const LandingSection = () => {
       <Services/>
       <Trips/>
       <Swiper/>
-
+      <Blogs/>
+      <Booking/>
        </div>
     </div>
   );

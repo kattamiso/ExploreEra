@@ -67,7 +67,7 @@ const Swiper = () => {
             <img
               src={item.Image}
               alt={item.title}
-              className="flex w-[380px] h-[400px] object-cover"
+              className="flex w-[380px] h-[400px] object-cover rounded-2xl"
             />
             <div className="absolute p-4">
               <h3 className="text-xl font-bold mt-4">{item.title}</h3>

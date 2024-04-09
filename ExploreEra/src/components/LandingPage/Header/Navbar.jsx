@@ -18,7 +18,7 @@ const Navbar = () => {
           {SidebarData.map((val, key) => (
             <li
               key={key}
-              className={`cursor-pointer text-3xl  ${sticky ? 'text-black' : 'text-white'}`}
+              className={`cursor-pointer text-3xl  ${sticky ? 'text-black' : 'text-white'} hover:text-[#C85100]`}
               onClick={() => {
                 window.location.pathname = val.link;
               }}
