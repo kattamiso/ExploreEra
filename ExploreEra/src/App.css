@@ -19,3 +19,7 @@ body {
    line-height: 64.56px;
    text-align: left;
 }
+
+.white-nav {
+  background-color: white;
+}

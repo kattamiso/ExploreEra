@@ -1,11 +1,11 @@
 import Navbar from "./Header/Navbar"
-import LandingSection from "./LandingSection/LandingSection"
+import HeroSection from "./LandingSection/HeroSection"
 
 const LandingPage = () => {
   return (
     <div>
      <Navbar />
-     <LandingSection />
+     <HeroSection />
     </div>
   )
 }
