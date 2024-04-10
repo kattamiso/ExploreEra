@@ -4,6 +4,7 @@ import Trips from "./Trips"
 import Swiper from "./Swiper/Swiper.jsx"
 import Blogs from "./Blogs/Blogs.jsx"
 import Booking from "./Booking/Booking.jsx"
+import Footer from "../Footer/Footer.jsx"
 
 const LandingSection = () => {
   return (
@@ -26,6 +27,10 @@ const LandingSection = () => {
       <Swiper/>
       <Blogs/>
       <Booking/>
+      <div className="relative top-[400px] bg-white w-full h-[50px]">
+
+      </div>
+      <Footer/>
        </div>
     </div>
   );

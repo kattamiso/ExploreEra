@@ -1,6 +1,7 @@
 import { useEffect,useState } from "react";
 import { SidebarData } from "./SidebarData"
-import User from "../../../../public/Icons/User/User_01.png"
+import User from "../../../../public/Icons/User/User.png"
+import User2 from "../../../../public/Icons/User/User2.png"
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
@@ -18,7 +19,7 @@ const Navbar = () => {
           {SidebarData.map((val, key) => (
             <li
               key={key}
-              className={`cursor-pointer text-3xl  ${sticky ? 'text-black' : 'text-white'} hover:text-[#C85100]`}
+              className={`cursor-pointer text-3xl  ${sticky ? 'text-[#424244]' : 'text-white'} hover:text-[#C85100]`}
               onClick={() => {
                 window.location.pathname = val.link;
               }}
@@ -26,7 +27,7 @@ const Navbar = () => {
               {val.title}
             </li>
           ))}
-          <img src={User} alt="userImage" className="w-8 h-8" />
+          <img src={sticky ? User : User2} alt="userImage" className="w-8 h-8" />
         </ul>
       </nav>
     </div>
