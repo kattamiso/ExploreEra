@@ -1,102 +1,84 @@
-import  { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useState } from "react";
 import Header from "./Header";
+import Footer from "../../components/LandingPage/Footer/Footer";
+import Facebook from "../../../public/Img/fbcolor.png";
+import Google from "../../../public/Img/googlecolor.png";
+import Apple from "../../../public/Img/applecolor.png";
+import Mail from "../../../public/Img/mailcolor.png";
+import Modal from "./SignIn"
 
-
-const SignUp = () => {
-  const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    password: '',
-    confirmPassword: '',
-  });
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+const SignIn = () => {
+  const [showModal, setShowModal] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // TODO: Implement sign up logic here
-    console.log('Form data:', formData);
-    navigate('/');
+  };
+
+  const toggleModal = () => {
+    setShowModal(!showModal);
   };
 
   return (
-    <div className="flex justify-center items-center h-screen">
-        <Header />
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-md">
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="name">
-            Name
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="name"
-            type="text"
-            placeholder="Enter your name"
-            name="name"
-            value={formData.name}
-            onChange={handleInputChange}
-          />
+    <div className=" flex flex-col justify-center items-center bg-[#F6F6F6]" >
+    <Header/>
+    <form onSubmit={handleSubmit} className=" relative flex flex-col items-center justify-center mt-[150px] w-[500px] h-[700px] bg-white ">
+     <div className="mb-4">
+       <label htmlFor="email" className="block text-gray-700">First Name</label>
+       <input type="email" id="email" name="email" className="border border-orange-500 rounded px-4 p-2 w-[400px]" required  placeholder="Enter your first name"/>
+     </div>
+    
+     <div className="mb-4">
+       <label htmlFor="email" className="block text-gray-700">Last Name</label>
+       <input type="email" id="email" name="email" className="border border-orange-500 rounded px-4 p-2 w-[400px]" required  placeholder="Enter your last name"/>
+     </div>
+    
+     <div className="mb-4">
+          <label htmlFor="email" className="block text-gray-700">Email</label>
+          <input type="email" id="email" name="email" className="border border-orange-500 rounded px-4 p-2 w-[400px]" required  placeholder="Enter your email address"/>
+     </div>
+    
+     <div className="mb-4">
+       <label htmlFor="password" className="block text-gray-700">Password</label>
+       <input type="password" id="password" name="password" className="border border-orange-500 rounded px-4 p-2 w-[400px]" required placeholder="Enter your password"/>
+     </div>
+    
+     <div className="mb-4">
+       <label htmlFor="password" className="block text-gray-700">Confirm the Password</label>
+       <input type="password" id="password" name="password" className="border border-orange-500 rounded px-4 p-2 w-[400px]" required placeholder="Re-Enter your password"/>
+     </div>
+    
+     <button type="submit" className="text-white bg-orange-500 px-4 py-2 rounded w-[400px] hover:bg-orange-600">Continue</button>
+    
+
+    <div className="my-5 flex flex-col items-center">
+          <div className="relative w-[400px]">
+            <hr className="border-t border-gray-400" />
+            <span className="absolute text-gray-400 bg-white px-4 py-2 rounded-2xl -translate-y-1/2 left-1/2 -translate-x-1/2">
+              or continue with
+            </span>
+          </div>
+
+          <div className="mt-10 flex flex-row w-[400px] gap-10">
+            <img className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer" src={Facebook}
+            />
+            <img src={Apple} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer"
+              />
+            <img src={Google} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer"
+            />
+            <img src={Mail} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer"
+            />
+          </div>
         </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="email">
-            Email
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="email"
-            type="email"
-            placeholder="Enter your email"
-            name="email"
-            value={formData.email}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="password">
-            Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="password"
-            type="password"
-            placeholder="Enter your password"
-            name="password"
-            value={formData.password}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="mb-4">
-          <label className="block text-gray-700 font-bold mb-2" htmlFor="confirmPassword">
-            Confirm Password
-          </label>
-          <input
-            className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-            id="confirmPassword"
-            type="password"
-            placeholder="Confirm your password"
-            name="confirmPassword"
-            value={formData.confirmPassword}
-            onChange={handleInputChange}
-          />
-        </div>
-        <div className="flex items-center justify-between">
-          <button
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
-            type="submit"
-          >
-            Sign Up
-          </button>
-        </div>
-      </form>
+    </form>
+
+      {showModal && <Modal handleClose={toggleModal} />}
+
+      <Footer />
     </div>
   );
 };
 
-export default SignUp;
+export default SignIn;
+
+
+
