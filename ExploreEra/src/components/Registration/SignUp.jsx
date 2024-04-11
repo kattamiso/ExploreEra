@@ -69,6 +69,15 @@ const SignIn = () => {
             />
           </div>
         </div>
+        <div className="relative w-[400px]">
+          <hr className="border-t border-gray-400" />
+          <p>
+            By signing in or creating an account, you agree with our{" "}
+            <span className="ml-12 text-orange-700" onClick={toggleModal}>
+              Terms & conditions and Privacy policy
+            </span>
+          </p>
+        </div>
     </form>
 
       {showModal && <Modal handleClose={toggleModal} />}
