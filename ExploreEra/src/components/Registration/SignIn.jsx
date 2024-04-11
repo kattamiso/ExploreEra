@@ -1,12 +1,15 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Header from "./Header";
 import Footer from "../../components/LandingPage/Footer/Footer";
 import Facebook from "../../../public/Img/fbcolor.png";
 import Google from "../../../public/Img/googlecolor.png";
 import Apple from "../../../public/Img/applecolor.png";
 import Mail from "../../../public/Img/mailcolor.png";
+import { signInWithEmailAndPassword, onAuthStateChanged } from "firebase/auth";
+import {auth} from '../../firebase-config'
 
-const Modal = ({ handleClose }) => {
+export function Modal({ handleClose }) { 
+
   return (
     <div className="absolute mx-auto flex justify-center z-10 w-full bg-slate-400 inset-0 " style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}>
 
@@ -37,9 +40,30 @@ const Modal = ({ handleClose }) => {
 
 const SignIn = () => {
   const [showModal, setShowModal] = useState(false);
+  const [loginEmail, setLoginEmail] = useState("");
+  const [loginPassword, setLoginPassword] = useState("");
+  const [user, setUser] = useState(null); 
 
-  const handleSubmit = (e) => {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+      setUser(currentUser);
+    });
+    return () => unsubscribe();
+  }, []); 
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        loginEmail,
+        loginPassword
+      );
+      const user = userCredential.user;
+      console.log(user);
+    } catch (error) {
+      console.log(error.message);
+    }
   };
 
   const toggleModal = () => {
@@ -49,6 +73,7 @@ const SignIn = () => {
   return (
     <div className="flex flex-col justify-center items-center bg-[#F6F6F6]">
       <Header />
+      <h4> User Logged In: {user?.email} </h4>
       <form
         onSubmit={handleSubmit}
         className="relative flex flex-col items-center justify-center mt-[150px] w-[500px] h-[500px] bg-white"
@@ -64,6 +89,8 @@ const SignIn = () => {
             className="border border-orange-500 rounded px-4 p-2 w-[400px]"
             required
             placeholder="Enter your email address"
+            value={loginEmail}
+            onChange={(event) => setLoginEmail(event.target.value)}
           />
         </div>
         <div className="mb-4">
@@ -77,6 +104,8 @@ const SignIn = () => {
             className="border border-orange-500 rounded px-4 p-2 w-[400px]"
             required
             placeholder="Enter your password"
+            value={loginPassword}
+            onChange={(event) => setLoginPassword(event.target.value)}
           />
         </div>
         <button
@@ -85,7 +114,7 @@ const SignIn = () => {
         >
           Continue
         </button>
-
+  
         <div className="my-5 flex flex-col items-center">
           <div className="relative w-[400px]">
             <hr className="border-t border-gray-400" />
@@ -93,19 +122,15 @@ const SignIn = () => {
               or continue with
             </span>
           </div>
-
+  
           <div className="mt-10 flex flex-row w-[400px] gap-10">
-            <img className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer" src={Facebook}
-            />
-            <img src={Apple} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer"
-              />
-            <img src={Google} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer"
-            />
-            <img src={Mail} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer"
-            />
+            <img className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer" src={Facebook} />
+            <img src={Apple} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer" />
+            <img src={Google} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer" />
+            <img src={Mail} className="border border-slate-400 rounded-xl p-1 w-[70px] h-[70px] cursor-pointer" />
           </div>
         </div>
-
+  
         <div className="relative w-[400px]">
           <hr className="border-t border-gray-400" />
           <p>
@@ -116,12 +141,13 @@ const SignIn = () => {
           </p>
         </div>
       </form>
-
+  
       {showModal && <Modal handleClose={toggleModal} />}
-
+  
       <Footer />
     </div>
   );
-};
+}
+  
 
 export default SignIn;

@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import SignIn from "../src/components/Registration/SignIn";
 import SignUp from "../src/components/Registration/SignUp";
 import Navbar from './components/LandingPage/Header/Navbar';
+import NewHomePage from './components/AuthorizedPages/NewHomePage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path='/signin' element={<SignIn />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/' element={<LandingPage />} />
+          <Route path='/newhomepage' element={<NewHomePage/>}/>
         </Routes>
       </Router>
     </>

@@ -4,21 +4,17 @@ import {  useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
 
-
-
 const Header = () => {
     const [isDropDownOpen, setIsDropDownOpen] = useState(false);
-    const navigate = useNavigate();
-  
+        const navigate = useNavigate();
+
     const toggle = () => {
       setIsDropDownOpen((prevState) => !prevState);
     };
-  
+
     const handleNavigation = (link) => {
       navigate(link);
     };
-
-    
 
   return (
     <div className="flex fixed w-screen top-0 z-20 justify-between items-center px-20 py-2 pt-5 bg-[#EAE9E9]">
