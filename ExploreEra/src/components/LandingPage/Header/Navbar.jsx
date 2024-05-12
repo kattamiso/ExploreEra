@@ -3,26 +3,33 @@ import { SidebarData } from "./SidebarData";
 import User from "../../../../public/Icons/User/User.png";
 import User2 from "../../../../public/Icons/User/User2.png";
 import { useNavigate } from 'react-router-dom';
+import { NavLink } from "react-router-dom";
+import Dropdown from "./Dropdown"
+import MenuIcon from "../../../../public/Icons/MenuIcon/MenuIcon.png"
+// import {ScrollMenuIcon} from "../../../../public/Icons/MenuIcon/ScrollMenuIcon.png"
+import Close from "../../../../public/Icons/MenuIcon/Close.png"
+
 
 const Navbar = () => {
   const [sticky, setSticky] = useState(false);
-  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
-  const toggle = () => {
-    setIsDropDownOpen((prevState) => !prevState);
-  };
 
   const handleNavigation = (link) => {
     navigate(link);
   };
+
+  const toggle = () => {
+      setIsOpen(!isOpen);
+  };
+
 
   useEffect(() => {
     window.addEventListener('scroll', () => {
       window.scrollY > 70 ? setSticky(true) : setSticky(false);
     });
   }, []);
-
   return (
     <div>
       <nav
@@ -33,7 +40,9 @@ const Navbar = () => {
         <h1  onClick={() => handleNavigation('/')} className={`text-5xl cursor-pointer font-kalnia ${sticky ? 'text-[#424244]' : 'text-white'}`}>
           ExploreEra
         </h1>
-        <ul className="flex items-center gap-7 relative">
+
+
+        <ul className=" hidden md:flex items-center gap-7 relative">
           {SidebarData.map((val, key) => (
             <li
               key={key}
@@ -42,9 +51,15 @@ const Navbar = () => {
               } hover:text-[#C85100]`}
               onClick={() => handleNavigation(val.link)}
             >
+              <NavLink
+                to={val.link}
+                >
               {val.title}
+              </NavLink>
             </li>
           ))}
+
+          {/* user */}
           <div className="relative">
             <img
               src={sticky ? User : User2}
@@ -52,23 +67,34 @@ const Navbar = () => {
               className="w-8 h-8 cursor-pointer"
               onClick={toggle}
             />
-            {isDropDownOpen && (
-              <div className="absolute bg-white w-[120px] h-[90px] rounded-xl pt-2 top-10 right-0 z-30 mt-4 ml-6">
-                <ul className="cursor-pointer">
-                  <li className="dropdown-item border-b border-orange-500 hover:bg-slate-200 pl-2 active:bg-slate-300">
-                    <span onClick={() => handleNavigation('/signin')}>Sign in</span>
-                  </li>
-                  <li className="dropdown-item border-b border-orange-500 hover:bg-slate-200 pl-2 active:bg-slate-300">
-                    <span onClick={() => handleNavigation('/signup')}>Sign up</span>
-                  </li>
-                  <li className="dropdown-item border-b border-orange-500 hover:bg-slate-200 pl-2 active:bg-slate-300">
-                    <span onClick={() => handleNavigation('/signout')}>Sign out</span>
-                  </li>
-                </ul>
-              </div>
+            {isOpen && (
+             <Dropdown />
             )}
           </div>
         </ul>
+
+
+          <button onClick={toggle} className="md:hidden p-2 focus:outline-none">
+            {isOpen ? <img src={Close} alt="Close" className="h-14 ml- " /> : <img src={MenuIcon} alt="MenuIcon" className="h-6 w-6" />}
+          </button>
+
+          {isOpen && (
+          <div className="md:hidden absolute w-full h- top-20 right-0 bg-white py-4 px-8 z-50">
+            {SidebarData.map((val, key) => (
+              <NavLink
+                key={key}
+                to={val.link}
+                className="block text-2xl py-2 hover:text-[#C85100]"
+                onClick={toggle}
+              >
+                {val.title}
+              </NavLink>
+            )
+            
+            )}
+          </div>
+        )}
+      
       </nav>
     </div>
   );
