@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown"
 import MenuIcon from "../../../../public/Icons/MenuIcon/MenuIcon.png"
-// import {ScrollMenuIcon} from "../../../../public/Icons/MenuIcon/ScrollMenuIcon.png"
+import ScrollMenuIcon from "../../../../public/Icons/MenuIcon/ScrollMenuIcon.png"
 import Close from "../../../../public/Icons/MenuIcon/Close.png"
 
 
@@ -37,11 +37,12 @@ const Navbar = () => {
           sticky ? 'white-nav' : ''
         }`}
       >
+        {/* logo */}
         <h1  onClick={() => handleNavigation('/')} className={`text-5xl cursor-pointer font-kalnia ${sticky ? 'text-[#424244]' : 'text-white'}`}>
           ExploreEra
         </h1>
 
-
+         {/* desktop navigation */}
         <ul className=" hidden md:flex items-center gap-7 relative">
           {SidebarData.map((val, key) => (
             <li
@@ -73,18 +74,25 @@ const Navbar = () => {
           </div>
         </ul>
 
-
-          <button onClick={toggle} className="md:hidden p-2 focus:outline-none">
-            {isOpen ? <img src={Close} alt="Close" className="h-14 ml- " /> : <img src={MenuIcon} alt="MenuIcon" className="h-6 w-6" />}
+           {/* mobile navigation icon */}
+          <button onClick={toggle} className="md:hidden z-50">
+            {isOpen ?
+            (<img src={Close} alt="Close" className="h-10" 
+              />
+            ) : (
+            <img src={sticky ? ScrollMenuIcon : MenuIcon} className="h-10" 
+            />
+            )}
           </button>
-
+       
+         {/* mobile navigation menu */}
           {isOpen && (
-          <div className="md:hidden absolute w-full h- top-20 right-0 bg-white py-4 px-8 z-50">
+          <div className="md:hidden fixed right-0 top-0 h-screen w-[50%] bg-[#ffedd5] py-28 z-40 transition ease-in-out translateY(25%)">
             {SidebarData.map((val, key) => (
               <NavLink
                 key={key}
                 to={val.link}
-                className="block text-2xl py-2 hover:text-[#C85100]"
+                className="block text-center text-2xl py-4 hover:text-[#C85100]"
                 onClick={toggle}
               >
                 {val.title}
