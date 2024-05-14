@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronLeft, faChevronRight } from '@fortawesome/free-solid-svg-icons';
-import SwiperData from "./SwiperData";
+import SwiperData from './SwiperData'; 
 
-const Swiper = () => {
+const YourComponent = () => {
   const [startIndex, setStartIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -11,63 +11,53 @@ const Swiper = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setTimeout(() => {
-        setStartIndex((prevIndex) => {
-          if (prevIndex === 0) {
-            return SwiperData.length - 4;
-          } else {
-            return prevIndex - 1;
-          }
-        });
+        setStartIndex(prevIndex => (prevIndex === 0 ? SwiperData.length - 4 : prevIndex - 1));
         setIsTransitioning(false);
-      }, 200); 
+      }, 300 );
     }
   };
-  
+
   const handleNext = () => {
     if (!isTransitioning) {
       setIsTransitioning(true);
       setTimeout(() => {
-        setStartIndex((prevIndex) => {
-          if (prevIndex === SwiperData.length - 4) {
-            return 0;
-          } else {
-            return prevIndex + 1;
-          }
-        });
+        setStartIndex(prevIndex => (prevIndex === SwiperData.length - 4 ? 0 : prevIndex + 1));
         setIsTransitioning(false);
-      }, 200); 
+      }, 300);
     }
   };
-  
 
   return (
-    <div className="relative max-w-[1200px] mx-auto my-20">
-      <div>
+    <div className="relative mx-auto my-20 sm:w-screen md:w-[800px] lg:w-[1200px] ">
+      <h2 className="mb-16 text-4xl font-medium">Popular Tour Offers</h2>
+      <div className="flex transform transition-transform duration-300" >
         <button
           onClick={handlePrev}
           disabled={isTransitioning}
-          className="prev-button absolute -my-10 z-20 px-4 rounded-md border-black"
+          className="prev-button absolute -my-10 z-20 px-4 rounded-md border-black" 
         >
           <FontAwesomeIcon icon={faChevronLeft} />
         </button>
         <button
           onClick={handleNext}
           disabled={isTransitioning}
-          className="next-button absolute right-4 -my-10 z-20 px-4 rounded-md border-black "
+          className="next-button absolute right-4 -my-10 z-20 px-4 rounded-md border-black transform 0.3s ease-in-out"
         >
           <FontAwesomeIcon icon={faChevronRight} />
         </button>
       </div>
-      <div className="flex justify-center items-center h-64 gap-4 cursor-pointer">
+      <div className="flex justify-center items-center gap-4 cursor-pointer overflow-x-auto" >
         {SwiperData.slice(startIndex, startIndex + 4).map((item, index) => (
           <div
             key={index}
-            className="w-1/4 h-full transition-transform duration-500 hover:scale-105"
-          >
+            className="w-full md:w-1/2 lg:w-1/4   transition-transform duration-500 hover:scale-105"
+            style={{ transition: 'transform 0.3s ease-in-out', transform: `translateX(-${startIndex * 4}%)` }}
+         >
             <img
               src={item.Image}
               alt={item.title}
-              className="flex w-[380px] h-[400px] object-cover rounded-2xl"
+              className="w-full h-[400px] object-cover rounded-2xl"
+              
             />
             <div className="absolute p-4">
               <h3 className="text-xl font-bold mt-4">{item.title}</h3>
@@ -81,4 +71,4 @@ const Swiper = () => {
   );
 };
 
-export default Swiper;
+export default YourComponent;
