@@ -3,8 +3,8 @@ import ServicesData from "./ServicesData"
 
 const Services = () => {
   return (
-    <div className="md:w-[950px] w-[340px] lg:w-[1200px] mx-20 lg:mx-auto">
-    <div className="flex flex-col sm:items-left md:i-center ">
+    <div className="md:w-[950px] w-[340px] lg:w-[1200px] mx-auto">
+    <div className="flex flex-col md:i-center ">
         <h2 className="md:text-[40px] text-[30px] font-medium py-8">Discover Our Services</h2>
         <p className='lg:w-[1200px] h-[80px] w-[450px] md:w-[800px] font-normal text-xl mb-10 lg:mb-0 '>
           ExploreEra provides a one-stop solution for individuals seeking well-planned journeys. These services include expert advice on destination selection, flight and accommodation bookings, and customized itineraries to individual preferences.

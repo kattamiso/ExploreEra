@@ -10,10 +10,10 @@ export default function Booking() {
 
   return (
     <div className="relative w-full bg-[#E0E0E0] top-[400px] flex flex-col items-center justify-center">
-      <h2 className="">Ready To Book A Trip?</h2>
+      <h2 className="text-4xl font-medium my-5">Ready To Book A Trip?</h2>
 
-      <div className="grid grid-cols-2 mt-4">
-        <form className="w-[600px] h-[124px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+        <form className="w-full md:w-[600px] h-[124px]">
           <div className="relative">
             <select
               className="bg-gray-50 border h-16 border-gray-300 text-2xl rounded-lg pl-8 pr-12 w-full appearance-none "
@@ -37,8 +37,8 @@ export default function Booking() {
             </svg>
           </div>
         </form>
-        
-        <form className="w-[600px] h-[124px]">
+
+        <form className="w-full md:w-[600px] h-[124px]">
           <div className="relative">
             <select
               className="bg-gray-50 border h-16 border-gray-300 text-2xl rounded-lg pl-8 pr-12 w-full appearance-none"
@@ -63,7 +63,7 @@ export default function Booking() {
           </div>
         </form>
 
-        <form className="w-[600px] h-[124px]">
+        <form className="w-full md:w-[600px] h-[124px]">
           <div className="relative">
             <select
               id="countries"
@@ -89,7 +89,7 @@ export default function Booking() {
           </div>
         </form>
 
-        <form className="w-[600px] h-[124px]">
+        <form className="w-full md:w-[600px] h-[124px]">
           <div className="relative">
             <select
               id="countries"
@@ -114,9 +114,10 @@ export default function Booking() {
             </svg>
           </div>
         </form>
+
       </div>
 
-      <button className="px-6 py-3 mb-8 w-[1200px] text-white text-2xl font-semibold rounded-lg shadow-md bg-[#FF4500] hover:bg-[#C85100] transition-colors duration-300">
+      <button className="px-6 py-3 mb-8 w-full md:w-[1200px] text-white text-2xl font-semibold rounded-lg shadow-md bg-[#FF4500] hover:bg-[#C85100] transition-colors duration-300">
         Book Now
       </button>
     </div>
