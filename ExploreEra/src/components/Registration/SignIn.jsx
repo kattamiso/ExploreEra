@@ -36,7 +36,7 @@ export function Modal({ handleClose }) {
       </div>
     </div>
   );
-};
+}
 
 const SignIn = () => {
   const [showModal, setShowModal] = useState(false);

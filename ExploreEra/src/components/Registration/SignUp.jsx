@@ -41,7 +41,7 @@ const SignUp = () => {
         registerPassword
       );
       console.log(userCredential.user);
-      navigate('/newhomepage');
+      navigate('/');
 
     } catch (error) {
       console.log(error.message);
@@ -75,7 +75,7 @@ const SignUp = () => {
           <label htmlFor="password" className="block text-gray-700">Confirm the Password</label>
           <input type="password" id="password1" name="password" className="border border-orange-500 rounded px-4 p-2 w-[400px]" required placeholder="Re-Enter your password"/>
         </div>
-        <button type="submit" onClick={(e) => { register(); handleNavigation('/newhomepage'); }} className="text-white bg-orange-500 px-4 py-2 rounded w-[400px] hover:bg-orange-600">Continue</button>
+        <button type="submit" onClick={() => { register(); handleNavigation('/newhomepage'); }} className="text-white bg-orange-500 px-4 py-2 rounded w-[400px] hover:bg-orange-600">Continue</button>
         <div className="my-5 flex flex-col items-center">
           <div className="relative w-[400px]">
             <hr className="border-t border-gray-400" />
