@@ -9,7 +9,7 @@ import NewHomePage from './components/AuthorizedPages/NewHomePage';
 function App() {
   return (
     <>
-      <Router>
+      <Router >
         <Navbar />
         <Routes>
           {/* <Route path='/signin' element={<SignIn />} />
