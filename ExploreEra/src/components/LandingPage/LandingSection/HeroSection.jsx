@@ -27,7 +27,7 @@ const HeroSection = () => {
       <Swiper/>
       <Blogs/>
       <Booking/>
-      <div className="absolute top-[100px] bg-white w-full h-[0px] ">
+      <div className="relative  md:top-[400px] bg-white w-full h-[100px] ">
 
       </div>
       <Footer/>

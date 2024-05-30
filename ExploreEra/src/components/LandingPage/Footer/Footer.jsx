@@ -2,7 +2,7 @@ import { FooterIcons, Links } from "./FooterData";
 import Vector from "../../../../public/Img/Vector.png"
 const Footer = () => {
   return (
-    <div className="relative bottom-0 top-[400px] w-full h-[350px] bg-gray-200 p-12 flex justify-around">
+    <div className="relative bottom-0 md:top-[400px] w-full h-[850px] md:h-[400px] bg-gray-200 p-12 flex flex-col md:flex-row justify-around">
     
      <div className="flex flex-col gap-8" >
       <h3 className="text-4xl font-kalnia text-black">ExploreEra</h3>
