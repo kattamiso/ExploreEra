@@ -16,10 +16,10 @@ const Trips = () => {
   };
 
   return (
-    <div className="w-[400px] md:w-[800px] lg:w-[1200px] mx-auto lg:pt-20">
-      <h2 className="text-4xl font-medium py-8">Watch Our Memorable Trips</h2>
+    <div className="sm:w-[300px] md:w-[600px] lg:w-[1100px] mx-auto">
+      <h2 className="text-3xl sm:text-4xl font-medium py-8">Watch Our Memorable Trips</h2>
       <div className="relative pt-10" onClick={handleClick}>
-        <video ref={videoRef} src={RomeVideo} className="w-full" muted ></video>
+        <video ref={videoRef} src={RomeVideo} muted ></video>
         {showPlayButton && (
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="bg-black bg-opacity-50 rounded-full p-2">

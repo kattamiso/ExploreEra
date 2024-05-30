@@ -34,7 +34,7 @@ const YourComponent = () => {
   };
 
   return (
-    <div className="relative sm:mx-auto sm:w-[500px] md:w-[600px] lg:w-[1200px] h-[600px] my-16 lg:pt-8">
+    <div className="relative sm:mx-auto sm:w-[350px] md:w-[600px] lg:w-[1200px] h-[600px] my-16 lg:pt-8">
       <h2 className="mb-16 text-4xl font-medium">Popular Tour Offers</h2>
       <div className="flex transform transition-transform duration-300" >
         <button

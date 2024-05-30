@@ -6,7 +6,7 @@ import Blogs from "./Blogs/Blogs.jsx"
 import Booking from "./Booking/Booking.jsx"
 import Footer from "../Footer/Footer.jsx"
 
-const LandingSection = () => {
+const HeroSection = () => {
   return (
     <div>
       <div className="absolute inset-0 ">
@@ -27,7 +27,7 @@ const LandingSection = () => {
       <Swiper/>
       <Blogs/>
       <Booking/>
-      <div className="relative top-[400px] bg-white w-full h-[50px]">
+      <div className="absolute top-[100px] bg-white w-full h-[0px] ">
 
       </div>
       <Footer/>
@@ -36,4 +36,4 @@ const LandingSection = () => {
   );
 };
 
-export default LandingSection;
+export default HeroSection;

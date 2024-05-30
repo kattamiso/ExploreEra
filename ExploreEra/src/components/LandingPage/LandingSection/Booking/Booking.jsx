@@ -9,11 +9,11 @@ export default function Booking() {
   };
 
   return (
-    <div className="relative w-full bg-[#E0E0E0] top-[400px] flex flex-col items-center justify-center">
-      <h2 className="text-4xl font-medium my-5">Ready To Book A Trip?</h2>
+    <div className="relative w-full bg-[#E0E0E0] top-[100px] md:top-[400px] flex flex-col items-center justify-center">
+      <h2 className="md:text-4xl text-3xl font-medium my-5">Ready To Book A Trip?</h2>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-        <form className="w-full md:w-[600px] h-[124px]">
+        <form className="w-full md:w-[600px h-[100px] md:h-[124px]">
           <div className="relative">
             <select
               className="bg-gray-50 border h-16 border-gray-300 text-2xl rounded-lg pl-8 pr-12 w-full appearance-none "
