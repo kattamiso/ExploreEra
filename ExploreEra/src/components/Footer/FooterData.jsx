@@ -1,6 +1,6 @@
-import facebook from "../../../../public/Icons/SocialIcons/facebook.png"
-import instagram from "../../../../public/Icons/SocialIcons/instagram.png"
-import linkedin from "../../../../public/Icons/SocialIcons/linkedin.png"
+import facebook from "../../../public/Icons/SocialIcons/facebook.png"
+import instagram from "../../../public/Icons/SocialIcons/instagram.png"
+import linkedin from "../../../public/Icons/SocialIcons/linkedin.png"
 
 
 export const FooterIcons = [

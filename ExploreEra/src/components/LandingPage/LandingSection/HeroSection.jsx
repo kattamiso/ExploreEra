@@ -1,14 +1,9 @@
 import BackgroundImg from "../../../../public/Img/backgroundImg.png"
-import Services from "./Services/Services";
-import Trips from "./Trips"
-import Swiper from "./Swiper/Swiper.jsx"
-import Blogs from "./Blogs/Blogs.jsx"
-import Booking from "./Booking/Booking.jsx"
-import Footer from "../Footer/Footer.jsx"
+
 
 const HeroSection = () => {
   return (
-    <div>
+    <div className="h-[800px]">
       <div className="absolute inset-0 ">
 
       <div className="absolute inset-0 h-[800px]" style={{ backgroundColor: 'rgba(0, 0, 0, 0.4)' }}></div>
@@ -22,15 +17,6 @@ const HeroSection = () => {
           </div>
         </div>
 
-      <Services/>
-      <Trips/>
-      <Swiper/>
-      <Blogs/>
-      <Booking/>
-      <div className="relative  md:top-[400px] bg-white w-full h-[100px] ">
-
-      </div>
-      <Footer/>
        </div>
     </div>
   );

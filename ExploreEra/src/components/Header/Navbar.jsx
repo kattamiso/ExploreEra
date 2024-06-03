@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { SidebarData } from "./SidebarData";
-import User from "../../../../public/Icons/User/User.png";
-import User2 from "../../../../public/Icons/User/User2.png";
+import User from "../../../public/Icons/User/User.png";
+import User2 from "../../../public/Icons/User/User2.png";
 import { useNavigate } from 'react-router-dom';
 import { NavLink } from "react-router-dom";
 import Dropdown from "./Dropdown"
-import MenuIcon from "../../../../public/Icons/MenuIcon/MenuIcon.png"
-import ScrollMenuIcon from "../../../../public/Icons/MenuIcon/ScrollMenuIcon.png"
-import Close from "../../../../public/Icons/MenuIcon/Close.png"
+import MenuIcon from "../../../public/Icons/MenuIcon/MenuIcon.png"
+import ScrollMenuIcon from "../../../public/Icons/MenuIcon/ScrollMenuIcon.png"
+import Close from "../../../public/Icons/MenuIcon/Close.png"
 
 
 const Navbar = () => {
