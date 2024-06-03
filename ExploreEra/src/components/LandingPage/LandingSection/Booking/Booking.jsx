@@ -1,5 +1,6 @@
 import { CapitalCountryPairs, tourOffers, Persons } from "./DataStorage";
 import { useState } from 'react';
+import {Link} from "react-router-dom"
 
 export default function Booking() {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -115,10 +116,13 @@ export default function Booking() {
         </div>
       </form>
     </div>
-  
-    <button className="px-6 py-3 mb-8 w-full md:w-[1200px] text-white text-2xl font-semibold rounded-lg shadow-md bg-[#FF4500] hover:bg-[#C85100] transition-colors duration-300">
-      Book Now
-    </button>
+      <nav> 
+        <Link to="/newhomepage" >
+          <button className="px-6 py-3 mb-8 w-full md:w-[1200px] text-white text-2xl font-semibold rounded-lg shadow-md bg-[#FF4500] hover:bg-[#C85100] transition-colors duration-300">
+             Book Now
+          </button>
+        </Link>
+      </nav>
   </div>
   
   );
