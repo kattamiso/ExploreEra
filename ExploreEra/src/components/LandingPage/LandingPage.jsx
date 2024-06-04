@@ -17,7 +17,7 @@ const LandingPage = () => {
       <Swiper/>
       <Blogs/>
       <Booking/>
-      <div className="relative  md:top-[400px] bg-white w-full h-[100px] ">
+      <div className="relative md:top-[400px] bg-white w-full h-[100px] ">
 
       </div>
      <Footer/>
