@@ -117,7 +117,7 @@ export default function Booking() {
       </form>
     </div>
       <nav> 
-        <Link to="/newhomepage" >
+        <Link to="/bookingpages" >
           <button className="px-6 py-3 mb-8 w-full md:w-[1200px] text-white text-2xl font-semibold rounded-lg shadow-md bg-[#FF4500] hover:bg-[#C85100] transition-colors duration-300">
              Book Now
           </button>

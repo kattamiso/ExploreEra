@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 const Menu = () => {
   const List = [
@@ -9,18 +9,30 @@ const Menu = () => {
     { title: 'Attractions', path: '/attractions' },
   ];
 
+  const [selectedTab, setSelectedTab] = useState(0)
+
+  const handleChange = (event, newValue) => {
+       setSelectedTab(newValue)
+  }
+
   return (
-    <div className="flex flex-row">
+    <div className="flex flex-row mt-32 max-w-[1200px] mx-auto">
       {List.map((item, index) => (
-        <Link
+        <div
           key={index}
-          to={item.path}
+          value={selectedTab}
+          onChange={handleChange}
           className="px-4 py-2 mr-4 text-gray-600 hover:text-orange-500"
           activeClassName="text-orange-500"
         >
           {item.title}
-        </Link>
+        </div>
       ))}
+
+
+      <div>
+
+      </div>
     </div>
   );
 };
