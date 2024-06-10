@@ -4,16 +4,7 @@ const Menu = () => {
   const List = [
     { title: 'Flights', path: '/flights' },
     { title: 'Stays', path: '/stays' },
-    { title: 'Car rentals', path: '/car-rentals' },
-    { title: 'Cruises', path: '/cruises' },
-    { title: 'Attractions', path: '/attractions' },
   ];
-
-  const [selectedTab, setSelectedTab] = useState(0)
-
-  const handleChange = (event, newValue) => {
-       setSelectedTab(newValue)
-  }
 
   return (
     <div className="flex flex-row mt-32 max-w-[1200px] mx-auto">
