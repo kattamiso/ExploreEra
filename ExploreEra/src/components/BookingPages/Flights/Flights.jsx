@@ -2,6 +2,7 @@ import { useState } from 'react';
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { CapitalCountryPairs } from "../../LandingPage/LandingSection/Booking/DataStorage";
+import { FlightsComponent } from './FlightsComponent';
 
 const Flights = () => {
   const [activeIndex, setActiveIndex] = useState(null);
@@ -50,6 +51,8 @@ const Flights = () => {
 
         <button className='px-8 rounded-xl text-white bg-orange-600 hover:bg-orange-700'>Search</button>
       </div>
+
+      <FlightsComponent/>
     </div>
   );
 }
